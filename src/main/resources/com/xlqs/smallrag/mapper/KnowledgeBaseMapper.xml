@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlqs.smallrag.mapper.KnowledgeBaseDao">
+
+    <resultMap id="BaseResultMap" type="com.xlqs.smallrag.entity.KnowledgeBase">
+            <id property="id" column="id" />
+            <result property="tenantId" column="tenant_id" />
+            <result property="name" column="name" />
+            <result property="description" column="description" />
+            <result property="embeddingModel" column="embedding_model" />
+            <result property="vectorDimension" column="vector_dimension" />
+            <result property="collectionName" column="collection_name" />
+            <result property="dataType" column="data_type" />
+            <result property="vectorFields" column="vector_fields" />
+            <result property="filterFields" column="filter_fields" />
+            <result property="chunkSize" column="chunk_size" />
+            <result property="chunkOverlap" column="chunk_overlap" />
+            <result property="status" column="status" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+            <result property="deletedAt" column="deleted_at" />
+    </resultMap>
+
+    <select id="selectAllKnowledgeBase" resultType="com.xlqs.smallrag.entity.KnowledgeBase">
+        select * from knowledge_base
+    </select>
+</mapper>

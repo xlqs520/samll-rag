@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlqs.smallrag.mapper.KnowledgeDocumentDao">
+
+    <resultMap id="BaseResultMap" type="com.xlqs.smallrag.entity.KnowledgeDocument">
+            <id property="id" column="id" />
+            <result property="knowledgeBaseId" column="knowledge_base_id" />
+            <result property="tenantId" column="tenant_id" />
+            <result property="llamaDocumentId" column="llama_document_id" />
+            <result property="name" column="name" />
+            <result property="fileType" column="file_type" />
+            <result property="fileUri" column="file_uri" />
+            <result property="fileSize" column="file_size" />
+            <result property="fileHash" column="file_hash" />
+            <result property="language" column="language" />
+            <result property="docVersion" column="doc_version" />
+            <result property="isShared" column="is_shared" />
+            <result property="metadata" column="metadata" />
+            <result property="chunkCount" column="chunk_count" />
+            <result property="vectorStatus" column="vector_status" />
+            <result property="errorMessage" column="error_message" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+            <result property="deletedAt" column="deleted_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,knowledge_base_id,tenant_id,llama_document_id,name,file_type,
+        file_uri,file_size,file_hash,language,doc_version,
+        is_shared,metadata,chunk_count,vector_status,error_message,
+        created_at,updated_at,deleted_at
+    </sql>
+</mapper>

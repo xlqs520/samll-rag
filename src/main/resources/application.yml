@@ -1,0 +1,42 @@
+logging:
+  level:
+    # 将此处的包名换成你项目里真实的 Mapper 接口包路径
+    com.xlqs.smallrag.mapper: DEBUG
+
+spring:
+  ai:
+    openai:
+      base-url: http://localhost:11434        # 指向本地 Ollama 的 OpenAI 兼容接口
+      api-key: ollama                          # Ollama 不需要真实 Key，但框架要求非空，随便填一个即可
+      embedding:
+        options:
+          model: quentinz/bge-large-zh-v1.5:q8_0 # 你本地的 bge 模型名称
+    vectorstore:
+      qdrant:
+        host: localhost
+        port: 6334
+        collection-name: default_collection # 会根据我们在业务中动态切换
+        initialize-schema: true
+        api-key: Xlqsnhyq521..
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/small-rag?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations:
+    - classpath*:com/**/*.xml
+
+
+
+server:
+  port: 8081
