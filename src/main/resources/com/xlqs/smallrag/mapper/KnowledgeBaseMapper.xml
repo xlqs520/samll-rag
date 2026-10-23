@@ -13,8 +13,10 @@
             <result property="vectorDimension" column="vector_dimension" />
             <result property="collectionName" column="collection_name" />
             <result property="dataType" column="data_type" />
-            <result property="vectorFields" column="vector_fields" />
-            <result property="filterFields" column="filter_fields" />
+            <result property="vectorFields" column="vector_fields"
+                    typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler" />
+            <result property="filterFields" column="filter_fields"
+                    typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler" />
             <result property="chunkSize" column="chunk_size" />
             <result property="chunkOverlap" column="chunk_overlap" />
             <result property="status" column="status" />
@@ -23,7 +25,7 @@
             <result property="deletedAt" column="deleted_at" />
     </resultMap>
 
-    <select id="selectAllKnowledgeBase" resultType="com.xlqs.smallrag.entity.KnowledgeBase">
+    <select id="selectAllKnowledgeBase" resultMap="BaseResultMap">
         select * from knowledge_base
     </select>
 </mapper>

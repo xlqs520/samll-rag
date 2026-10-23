@@ -3,9 +3,13 @@ package com.xlqs.smallrag.entity;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
+import org.apache.ibatis.type.JdbcType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -19,10 +23,11 @@ import java.io.Serializable;
 * @since 2026年10月14日
 */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@TableName("knowledge_document")
+@TableName(value = "knowledge_document", autoResultMap = true)
 public class KnowledgeDocument implements Serializable {
 
 
@@ -90,6 +95,7 @@ public class KnowledgeDocument implements Serializable {
     /**
     * 文档扩展元数据，例如来源、作者及自定义属性
     */
+    @TableField(value = "metadata", typeHandler = JacksonTypeHandler.class, jdbcType = JdbcType.VARCHAR)
     private Object metadata;
 
     /**

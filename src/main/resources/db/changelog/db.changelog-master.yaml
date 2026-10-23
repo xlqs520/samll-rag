@@ -10,3 +10,11 @@ databaseChangeLog:
   - include:
       file: sql/003-create-knowledge-chunk.sql
       relativeToChangelogFile: true
+
+  - include:
+      file: sql/004-create-knowledge-document-json.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: sql/005-create-knowledge-document-file.sql
+      relativeToChangelogFile: true

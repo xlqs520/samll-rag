@@ -3,7 +3,6 @@ package com.xlqs.smallrag.vo;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author xlqs
@@ -34,12 +33,12 @@ public class KnowledgeBaseCreateDto {
     /**
      * JSON 知识库核心：指定哪些字段拼成文本去转向量
      */
-    private Map<String, Boolean> vectorFields;
+    private List<String> vectorFields;
 
     /**
      * 可选：允许用于元数据过滤的字段列表
      */
-    private Map<String, Boolean> filterFields;
+    private List<String> filterFields;
 
     /**
      * 可选：分片大小

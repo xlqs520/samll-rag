@@ -1,3 +1,5 @@
+
+
 logging:
   level:
     # 将此处的包名换成你项目里真实的 Mapper 接口包路径
@@ -37,6 +39,15 @@ mybatis-plus:
     - classpath*:com/**/*.xml
 
 
+minio:
+  endpoint: http://localhost:9000
+  access-key: xlqs
+  secret-key: Xlqsnhyq521..
+  bucket: small-rag
+
+
 
 server:
   port: 8081
+  servlet:
+    context-path: /rag

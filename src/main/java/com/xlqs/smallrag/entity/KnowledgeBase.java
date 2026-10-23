@@ -11,6 +11,7 @@ import lombok.*;
 import org.apache.ibatis.type.JdbcType;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
 * 知识库配置表
@@ -23,7 +24,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @Builder
-@TableName("knowledge_base")
+@TableName(value = "knowledge_base", autoResultMap = true)
 public class KnowledgeBase implements Serializable {
 
 
@@ -72,13 +73,13 @@ public class KnowledgeBase implements Serializable {
     * 参与向量化的字段
     */
     @TableField(value = "vector_fields", typeHandler = JacksonTypeHandler.class, jdbcType = JdbcType.VARCHAR)
-    private Object vectorFields;
+    private List<String> vectorFields;
 
     /**
     * 允许使用的过滤字段
     */
     @TableField(value = "filter_fields", typeHandler = JacksonTypeHandler.class, jdbcType = JdbcType.VARCHAR)
-    private Object filterFields;
+    private List<String> filterFields;
 
     /**
     * 分片大小

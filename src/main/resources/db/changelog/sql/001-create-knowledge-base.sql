@@ -18,9 +18,9 @@ CREATE TABLE knowledge_base (
 
     collection_name VARCHAR(100) NOT NULL COMMENT 'Qdrant向量集合名称，全局唯一',
 
-    vector_fields JSON COMMENT '参与向量化的字段列表',
+    vector_fields VARCHAR(500) COMMENT '参与向量化的字段列表',
 
-    filter_fields JSON COMMENT '允许用于元数据过滤的字段列表',
+    filter_fields VARCHAR(500) COMMENT '允许用于元数据过滤的字段列表',
 
     chunk_size INT NOT NULL DEFAULT 500 COMMENT '文档分片大小，通常按字符数或Token数计算',
 
