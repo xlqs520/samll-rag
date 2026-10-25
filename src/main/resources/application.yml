@@ -74,6 +74,9 @@ minio:
   secret-key: Xlqsnhyq521..
   bucket: small-rag
 
+api-key:
+  # 需要生成 32 字节随机密钥 => scripts/encryption-key.sh
+  encryption-key: Kr3vpa92Xcp7Z1QQqzfSoAAof/GaTvxw/OJNRq2NKf0=
 
 server:
   port: 8081

@@ -14,6 +14,7 @@ import com.xlqs.smallrag.qdrant.CollectionHelper;
 import com.xlqs.smallrag.split.TextLoadService;
 import com.xlqs.smallrag.split.TextSplitService;
 import com.xlqs.smallrag.storage.MinioService;
+import com.xlqs.smallrag.utils.ApiKeyCryptoService;
 import com.xlqs.smallrag.utils.EmbeddingModelFactory;
 import com.xlqs.smallrag.vo.KnowledgeBaseCreateVo;
 import org.junit.jupiter.api.Assertions;
@@ -265,4 +266,16 @@ class SmallRagApplicationTests {
         System.out.println(vector.length); // 1024
     }
 
+    @Autowired
+    private ApiKeyCryptoService apiKeyCryptoService;
+
+    @Test
+    public void testApiKeyCryptoService() {
+        String plainText = "1111";
+        String encrypted = apiKeyCryptoService.encrypt(plainText);
+        String decrypted = apiKeyCryptoService.decrypt(encrypted);
+        System.out.println("Plain Text: " + plainText);
+        System.out.println("Encrypted: " + encrypted);
+        System.out.println("Decrypted: " + decrypted);
+    }
 }
