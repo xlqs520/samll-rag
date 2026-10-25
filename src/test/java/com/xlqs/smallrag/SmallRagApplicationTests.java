@@ -15,7 +15,7 @@ import com.xlqs.smallrag.split.TextLoadService;
 import com.xlqs.smallrag.split.TextSplitService;
 import com.xlqs.smallrag.storage.MinioService;
 import com.xlqs.smallrag.utils.EmbeddingModelFactory;
-import com.xlqs.smallrag.vo.KnowledgeBaseCreateDto;
+import com.xlqs.smallrag.vo.KnowledgeBaseCreateVo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.document.Document;
@@ -112,7 +112,7 @@ class SmallRagApplicationTests {
     @Test
     public void testCreateKnowledgeBase() {
         // 1. 模拟前端传入的 DTO 参数（不再需要手动传 collectionName）
-        KnowledgeBaseCreateDto dto = new KnowledgeBaseCreateDto();
+        KnowledgeBaseCreateVo dto = new KnowledgeBaseCreateVo();
         dto.setName("商品知识库-" + System.currentTimeMillis()); // 加上时间戳防重
         dto.setDescription("这是一个用于测试创建 text 知识库的用例");
         dto.setDataType("JSON");
@@ -163,7 +163,7 @@ class SmallRagApplicationTests {
     @Test
     public void testCreateKnowledgeBaseText() {
         // 1. 模拟前端传入的 DTO 参数（不再需要手动传 collectionName）
-        KnowledgeBaseCreateDto dto = new KnowledgeBaseCreateDto();
+        KnowledgeBaseCreateVo dto = new KnowledgeBaseCreateVo();
         dto.setName("Redis知识库-" + System.currentTimeMillis()); // 加上时间戳防重
         dto.setDescription("这是一个用于测试创建 text 知识库的用例");
         dto.setDataType("Document");

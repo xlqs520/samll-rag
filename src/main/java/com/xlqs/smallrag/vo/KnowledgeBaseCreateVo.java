@@ -8,12 +8,12 @@ import java.util.List;
  * @author xlqs
  * @version 1.0
  * @date 2026/10/14 15:42
- * @description KnowledgeBaseCreateDto 类说明：TODO
+ * @description KnowledgeBaseCreateVo 类说明：TODO
  * @since 2026/10/14
  */
 
 @Data
-public class KnowledgeBaseCreateDto {
+public class KnowledgeBaseCreateVo {
 
     /**
      * 知识库名称
@@ -29,6 +29,11 @@ public class KnowledgeBaseCreateDto {
      * 例如：DOCUMENT (传统文档), JSON (结构化数据)
      */
     private String dataType;
+
+    /**
+     * 向量化模型
+     */
+    private String embeddingModel;
 
     /**
      * JSON 知识库核心：指定哪些字段拼成文本去转向量

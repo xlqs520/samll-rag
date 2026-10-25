@@ -25,6 +25,36 @@
             <result property="deletedAt" column="deleted_at" />
     </resultMap>
 
+    <update id="updateKnowledgeBase">
+        UPDATE knowledge_base
+        <set>
+            <if test="dto.name != null">
+                name = #{dto.name},
+            </if>
+
+            <if test="dto.description != null">
+                description = #{dto.description},
+            </if>
+
+            <if test="dto.dataType != null">
+                data_type = #{dto.dataType},
+            </if>
+
+            <if test="dto.vectorFields != null">
+                vector_fields = #{dto.vectorFields,
+                    typeHandler=com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler},
+            </if>
+
+            <if test="dto.filterFields != null">
+                filter_fields = #{dto.filterFields,
+                    typeHandler=com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler},
+            </if>
+        </set>
+
+        WHERE id = #{kbId}
+        AND tenant_id = #{tenantId}
+    </update>
+
     <select id="selectAllKnowledgeBase" resultMap="BaseResultMap">
         select * from knowledge_base
     </select>
