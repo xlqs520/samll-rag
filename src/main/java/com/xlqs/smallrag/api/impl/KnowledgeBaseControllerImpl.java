@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class KnowledgeBaseControllerImpl implements KnowledgeBaseController {
+
+
     @Override
     public Result<String> createKnowledgeBase() {
         return null;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlqs.smallrag.mapper.KnowledgeDocumentFileDao">
+
+    <resultMap id="BaseResultMap" type="com.xlqs.smallrag.entity.KnowledgeDocumentFile">
+            <id property="id" column="id" />
+            <result property="documentId" column="document_id" />
+            <result property="fileName" column="file_name" />
+            <result property="fileType" column="file_type" />
+            <result property="contentType" column="content_type" />
+            <result property="fileSize" column="file_size" />
+            <result property="fileHash" column="file_hash" />
+            <result property="fileBucket" column="file_bucket" />
+            <result property="fileUri" column="file_uri" />
+            <result property="fileStatus" column="file_status" />
+            <result property="errorMessage" column="error_message" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,document_id,file_name,file_type,content_type,file_size,
+        file_hash,file_bucket,file_uri,file_status,error_message,
+        created_at,updated_at
+    </sql>
+</mapper>

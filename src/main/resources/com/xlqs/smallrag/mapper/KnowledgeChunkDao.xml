@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlqs.smallrag.mapper.KnowledgeChunkDao">
+
+    <resultMap id="BaseResultMap" type="com.xlqs.smallrag.entity.KnowledgeChunk">
+            <id property="id" column="id" />
+            <result property="knowledgeBaseId" column="knowledge_base_id" />
+            <result property="documentId" column="document_id" />
+            <result property="chunkIndex" column="chunk_index" />
+            <result property="llamaNodeId" column="llama_node_id" />
+            <result property="content" column="content" />
+            <result property="metadata" column="metadata"
+                    typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler" />
+            <result property="qdrantPointId" column="qdrant_point_id" />
+            <result property="vectorStatus" column="vector_status" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,knowledge_base_id,document_id,chunk_index,llama_node_id,content,
+        metadata,qdrant_point_id,vector_status,created_at,updated_at
+    </sql>
+</mapper>
