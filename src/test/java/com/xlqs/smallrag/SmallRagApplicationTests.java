@@ -14,6 +14,7 @@ import com.xlqs.smallrag.qdrant.CollectionHelper;
 import com.xlqs.smallrag.split.TextLoadService;
 import com.xlqs.smallrag.split.TextSplitService;
 import com.xlqs.smallrag.storage.MinioService;
+import com.xlqs.smallrag.utils.EmbeddingModelFactory;
 import com.xlqs.smallrag.vo.KnowledgeBaseCreateDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -229,6 +230,39 @@ class SmallRagApplicationTests {
 
 //        minioService.delete(objectName);
 //        System.out.println("🗑️ 测试对象已删除");
+    }
+
+    @Autowired
+    private EmbeddingModelFactory embeddingModelFactory;
+
+    @Test
+    public void testEmbedding() {
+        EmbeddingModel model = embeddingModelFactory.create(
+                "http://localhost:11434/v1",
+                "1111",
+                "quentinz/bge-large-zh-v1.5:q8_0",
+                1024
+        );
+        float[] vector = model.embed("Spring Boot 如何连接 Redis");
+        System.out.println(vector.length); // 1024
+    }
+
+    @Test
+    public void testEmbedding01() {
+        EmbeddingModel model = embeddingModelFactory.create(
+                "https://ark.cn-beijing.volces.com/api/coding/v3",
+                "******",
+                "doubao-embedding-vision",
+                1024
+        );
+        float[] vector = model.embed("Spring Boot 如何连接 Redis");
+        System.out.println(vector.length); // 1024
+    }
+
+    @Test
+    public void testEmbedding2() {
+        float[] vector = embeddingModel.embed("Spring Boot 如何连接 Redis");
+        System.out.println(vector.length); // 1024
     }
 
 }

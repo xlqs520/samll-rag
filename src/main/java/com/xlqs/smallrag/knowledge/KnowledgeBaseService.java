@@ -66,6 +66,6 @@ public class KnowledgeBaseService {
     public String generateCollectionName(Long tenantId) {
         String timestamp = LocalDateTime.now().format(FORMATTER);
         // 最终生成的 Collection 名称如: kb_t1001_2026-10-14-03-09-45
-        return String.format("kb_n%d_%s", tenantId, timestamp);
+        return String.format("kb_no_%d_%s", tenantId, timestamp);
     }
 }
